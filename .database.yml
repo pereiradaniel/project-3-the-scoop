@@ -1,0 +1,11 @@
+users:
+  test@gmail.com:
+    username: test@gmail.com
+    articleIds: []
+    commentIds: []
+articles:
+  '1': null
+nextArticleId: 2
+comments:
+  '1': null
+nextCommentId: 2

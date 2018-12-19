@@ -1,3 +1,7 @@
+var yaml = require('write-yaml');
+var read = require('read-data');
+const database_file = '.database.yml';
+
 // database is let instead of const to allow us to modify it in test.js
 let database = {
   users: {},
@@ -360,6 +364,27 @@ function createComment(url, request) {
   return response;
 }
 
+// yaml functions
+function saveDatabase(){
+  yaml(database_file,database,function(err){
+    if (err!==null){
+      console.log(" in save database "+ err);
+    }
+    else{
+      console.log("database saved successfully");
+    }
+  });
+}
+
+function loadDatabase(){
+  try {
+    let db =  read.sync(database_file);
+    console.log ("database loaded successfully");
+    return db;
+    } catch(err) {
+  return null;
+  }
+}
 
 // Write all code above this line.
 
